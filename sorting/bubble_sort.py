@@ -88,8 +88,6 @@ def bubble_sort_full_optimized_without_duplicates_values(array: list[int]) -> li
             if array[i] == array[i + 1]:
                 array.pop(i + 1)
                 array_size -= 1
-                swapped = True
-                break
 
             if array[i] > array[i + 1]:
                 array[i], array[i + 1] = array[i + 1], array[i]
@@ -129,3 +127,4 @@ if __name__ == '__main__':
 
     # Test with duplicates values
     bubble_sort_full_optimized_without_duplicates_values([1, 7, 2, 3, 2, 4, 8, 6, 9, 3, 4, 5, 4])
+    bubble_sort_full_optimized_without_duplicates_values_with_set([1, 7, 2, 3, 2, 4, 8, 6, 9, 3, 4, 5, 4])
