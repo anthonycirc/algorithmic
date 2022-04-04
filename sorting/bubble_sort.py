@@ -99,9 +99,33 @@ def bubble_sort_full_optimized_without_duplicates_values(array: list[int]) -> li
     return array
 
 
+def bubble_sort_full_optimized_without_duplicates_values_with_set(array: list[int]) -> list:
+    """
+    Bubble sort algorithm (optimized) add swapped var and num_iterations and remove duplicates value
+    :param array: list of integers
+    :return:list: sorted list
+    """
+    array_size: int = len(array)
+    swapped: bool = True
+    num_iterations: int = 0
+
+    while swapped:
+        swapped = False
+        for i in range(array_size - num_iterations - 1):
+            if array[i] > array[i + 1]:
+                array[i], array[i + 1] = array[i + 1], array[i]
+                swapped = True
+
+        num_iterations += 1
+    return list(set(array))
+
+
 if __name__ == '__main__':
     bubble_sort_not_optimized([1, 7, 2, 8, 6, 9, 3, 5, 4])
     bubble_sort_not_optimized([1, 7, 2, 3, 2, 4, 8, 6, 9, 3, 4, 5, 4])
     bubble_sort_optimized([1, 7, 2, 8, 6, 9, 3, 5, 4])
     bubble_sort_more_optimized([1, 7, 2, 8, 6, 9, 3, 5, 4])
     bubble_sort_full_optimized([1, 7, 2, 8, 6, 9, 3, 5, 4])
+
+    # Test with duplicates values
+    bubble_sort_full_optimized_without_duplicates_values([1, 7, 2, 3, 2, 4, 8, 6, 9, 3, 4, 5, 4])
